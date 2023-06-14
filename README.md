@@ -31,3 +31,5 @@ This script has 4 main functions -
 - for Redhat family you may use YUM or DNF so it will change like `sudo yum install docker docker-compose -y` or `sudo dnf install docker docker-compose`
 
 In distros other than arch you may not find a latest docker install. therefore use this documentation to do so - [docker docs](https://docs.docker.com/engine/install/)
+
+#### make sure that all the files in this repo is on the same folder. If not you may some difficulty and lots of debugging
