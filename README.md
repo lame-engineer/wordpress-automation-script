@@ -20,7 +20,7 @@ This script has 4 main functions -
 
 
 ### The script needs to be run as root because of the following reasons -
-- Instaaling packages
+- Installing packages
 - Making changes in /etc/hosts file
 
 
