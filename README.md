@@ -10,8 +10,15 @@ This script has 4 main functions -
 - The script needs to be run as root (use sudo)
 - To run the script first give it appropriate permissions.
     - `chmod +x script_name`
-- Run the script by the following command `sudo ./script_name example.com` 
+- Run the script by the following command `sudo ./script_name example.com`. This will spin up the containers.
   
-  Where the exampl.com wold be your very own site name
+  Where the exampl.com would be your very own site name
   
+- To stop the containers use `sudo ./script_name stop`
+- To delete the containers use `sudo ./script_name destroy`
 
+
+
+### The script needs to be run as root because of the following reasons -
+- Instaaling packages
+- Making changes in /etc/hosts file
