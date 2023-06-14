@@ -60,14 +60,8 @@ main() {
     sudo pacman -S docker docker-compose -y
     fi
 
-    # Check if site name is provided as a command-line argument
-    if [ -z "$1" ]; then
-        echo "Site name not provided. Exiting... (for example - abc.com)"
-        exit 1
-    fi
-
-    # Get site name from command-line argument
-    local site_name="$1"
+    # Check if site name is provided as a command-line argument if not then use default example.com
+    local site_name="${1:-example.com}"
 
     # Add /etc/hosts entry
     add_etc_hosts_entry "$site_name"
