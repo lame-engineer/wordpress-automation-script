@@ -45,6 +45,16 @@ get_url() {
     echo "Open this $url in a browser..."
 }
 
+# stop all containers
+stop_containers() {
+    docker-compose -f "$DOCKER_COMPOSE_FILE" down
+}
+
+# delete all containers
+delete_containers() {
+    docker-compose -f "$DOCKER_COMPOSE_FILE" down --volumes --remove-orphans
+}
+
 # Start the WordPress containers
 start_wordpress() {
     docker-compose -f "$DOCKER_COMPOSE_FILE" up -d
@@ -58,6 +68,18 @@ main() {
     else
     echo "Docker or docker-compose is not installed. Installiation in progress..."
     sudo pacman -S docker docker-compose -y
+    fi
+        if [[ "$1" == "stop" ]]; then
+        stop_containers
+        echo "All containers have been stopped."
+        exit 0
+    fi
+
+    # Check if the first command-line argument is "delete"
+    if [[ "$1" == "destroy" ]]; then
+        delete_containers
+        echo "All containers have been deleted."
+        exit 0
     fi
 
     # Check if site name is provided as a command-line argument if not then use default example.com
